@@ -1,0 +1,18 @@
+Package: UsedCarsIndia
+Type: Package
+Title: Predict Used Car Prices In India
+Version: 0.1.0
+Author: Vishal Katti
+Maintainer: Vishal Katti <katti.vishal@gmail.com>
+Description: This package provides a dataset containing 10,233 rows of Used Car information.
+    This data was extracted from Cars24.com and Carwale.com between May 2024 to September 2024.
+    This package was created as part of the Final Year Research Project under the guidance of Dr. Shalini R 
+    towards partial completion of Masters Program in JAIN Online Batch of January 2023.
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 3.5.0)
+RoxygenNote: 7.3.2
+Imports: 
+    shiny

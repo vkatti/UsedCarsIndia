@@ -1,0 +1,7 @@
+#' @title Random Forest Model for Used Cars Price Prediction
+#'
+#' @description
+#' This is a Random Forest model created using bootstrapped data sampling with ntree=300 and mtry=4
+#' and formula = listingPrice ~ variant + year + odometerReading + fuelType + bodyType + transmission
+#' You can see the detailed code here (https://github.com/vkatti/ResearchProjectMBA/tree/main/07_ML_Modelling)
+"rf_model"

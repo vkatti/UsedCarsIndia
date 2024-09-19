@@ -11,7 +11,6 @@ library(shiny)
 library(randomForest)
 
 data_path <- system.file("data", package = "UsedCarsIndia")
-print("this is from the app.R")
 print(data_path)
 load(file.path(data_path, "usedcars.rda"))
 load(file.path(data_path, "rf_model.rda"))

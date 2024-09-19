@@ -12,8 +12,11 @@ library(randomForest)
 
 data_path <- system.file("data", package = "UsedCarsIndia")
 print(data_path)
-load(file.path(data_path, "usedcars.rda"))
-load(file.path(data_path, "rf_model.rda"))
+#load(file.path(data_path, "usedcars.rda"))
+#load(file.path(data_path, "rf_model.rda"))
+
+data("usedcars")
+data("rf_model")
 
 input_data <- usedcars[!is.na(usedcars$fuelType), ]
 input_data$make_model <- paste(input_data$make, input_data$model)

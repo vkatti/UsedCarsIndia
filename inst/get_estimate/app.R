@@ -26,7 +26,7 @@ se <- round(floor(sqrt(mean(rf_model$mse))/1E4)*1E4,0)
 ui <- fluidPage(
   titlePanel("Used Cars Price Predictor v0.1"),
   fluidRow(
-    column(width = 4,
+    column(width = 3,
            selectizeInput("make_model", "Make - Model", choices = sort(unique(input_data$make_model))),
            selectizeInput("variant", "Variant", choices = NULL),
            selectInput("year","Model Year", choices = NULL),
@@ -34,9 +34,9 @@ ui <- fluidPage(
            selectInput("bodyType","Body Type", choices = NULL),
            selectInput("transmission","Transmission", choices = NULL),
            sliderInput("odometerReading", "Odometer Reading", min = 500, max = 10000, value = 500, step=1000),
-           actionButton("predict","Show Estimate")
+           actionButton("predict","Show Estimate", icon = icon("wand-magic-sparkles"))
            ),
-    column(width=8,
+    column(width=9,
            "The estimated price of the used car is:",
            h1(textOutput("predicted_price")),
            plotOutput("variant_plot")
@@ -45,8 +45,6 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-
-
 
   output$variant_plot <- renderPlot({
 
@@ -59,7 +57,9 @@ server <- function(input, output, session) {
       ggplot2::labs(x = "Odometer Reading (in Kms)", color = "Model Year") +
       ggplot2::theme_bw() +
       ggplot2::theme(legend.position = "top",
-            legend.direction = "horizontal")
+                     legend.direction = "horizontal",
+                     strip.background = ggplot2::element_rect(fill = "black"),
+                     strip.text = ggplot2::element_text(color = "white", size = 20))
   }) |> bindEvent(input$predict)
 
   new_data <- reactive({
